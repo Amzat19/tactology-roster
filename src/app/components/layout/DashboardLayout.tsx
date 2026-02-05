@@ -15,35 +15,32 @@ export default function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
   return (
-    <Flex direction="column" h="100vh" bg="gray.50">
-      {/* Top Header */}
-      {header && (
+    <Flex direction="row" h="100vh" bg="gray.50">
+      {sidebar && (
         <Box
-          h="64px"
-          px={6}
-          borderBottom="1px solid"
+          w="260px"
+          borderRight="1px solid"
           borderColor="gray.200"
           bg="white"
+          overflowY="auto"
         >
-          {header}
+          {sidebar}
         </Box>
       )}
 
-      {/* Main Content */}
-      <Flex flex="1" overflow="hidden">
-        {/* Sidebar (optional) */}
-        {sidebar && (
+      <Flex flex="1" direction={"column"} overflow="hidden">
+        {header && (
           <Box
-            w="280px"
-            borderRight="1px solid"
+            h="64px"
+            px={6}
+            py={12}
+            borderBottom="1px solid"
             borderColor="gray.200"
             bg="white"
-            overflowY="auto"
           >
-            {sidebar}
+            {header}
           </Box>
         )}
-
         {/* Page Content */}
         <Box flex="1" overflow="auto">
           {children}
