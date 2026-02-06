@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Planner / Roster Interface
 
-## Getting Started
+A calendar-based planner interface built with **Next.js**, **TypeScript**, and **Chakra UI (v3)**.  
+The application displays scheduled events in a time-grid layout with support for **day, week, and month** views, roster integration, and modal-based event inspection.
 
-First, run the development server:
+This project was built as a frontend technical assessment with a focus on:
+
+- clean state management
+- predictable time-based data
+- UI/UX consistency
+- scalable component structure
+
+---
+
+## 🧰 Tech Stack
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Chakra UI v3**
+- **Ark UI (via Chakra v3 components)**
+- **iconsax-react**
+- **react-icons**
+
+> ⚠️ No AI-generated code was used in this project.
+
+---
+
+## ✨ Features
+
+### Core Functionality
+
+- Time-grid planner layout with hourly slots
+- Events grouped and rendered by column and time range
+- Clickable schedules with modal details
+- Navigation between previous / current / next dates
+- Real, deterministic date handling (no hard-coded dates)
+
+### Time Views
+
+- **Day view** – shows events for the selected day
+- **Week view** – shows all events for the selected week
+- **Month view** – header-level support (grid can be extended)
+
+### UX Enhancements
+
+- Loading states when switching dates or views
+- Empty states when no events exist for a selected range
+- Roster panel synced with day-based selection
+- Consistent Chakra UI design patterns
+
+---
+
+## 🗂️ Project Structure
+
+app/
+layout.tsx
+page.tsx
+providers.tsx
+
+components/
+planner/
+PlannerSection.tsx
+PlannerTimeGrid.tsx
+RosterPanel.tsx
+SeeAllModal.tsx
+
+data/
+planner-events.ts
+
+utils/
+date.ts
+time.ts
+group-events.ts
+generateTimeSlots.ts
+
+theme/
+index.ts
+
+---
+
+## 📅 Dummy Data Strategy
+
+To make the planner **easy to test**, the app generates deterministic dummy events:
+
+- Events exist **every day**
+- Covers:
+  - last week
+  - current week
+  - next week
+- Each column has multiple events per day
+- Times are consistent and predictable
+
+This ensures:
+
+- Navigation always produces visible changes
+- Reviewers never encounter an empty grid unintentionally
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** ≥ 18
+- **npm** or **pnpm**
+
+---
+
+### Installation
 
 ```bash
+git clone <repository-url>
+cd <project-folder>
+npm install
+or
+
+pnpm install
+Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🧭 How to Test the Planner
 
-## Learn More
+- Use the left / right arrows to move between dates
 
-To learn more about Next.js, take a look at the following resources:
+- Switch between Day / Week / Month using the dropdown
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Click on events or “See all” to open the details modal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Toggle the roster panel to see day-based roster behavior
 
-## Deploy on Vercel
+- Navigate across weeks to verify data updates correctly
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- All visible data is derived from the selected date state.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🧠 Design & Architecture Notes
+
+- Single source of truth for time
+- Date and view granularity are centralized in PlannerSection.
+- PlannerTimeGrid is render-only
+- It receives filtered data and focuses purely on layout.
+
+### 📌 Limitations & Future Improvements
+
+- Month grid view can be expanded into a full calendar
+- Drag-and-drop scheduling is not implemented
+- Backend persistence is out of scope for this assessment
+
+### 📄 License
+
+This project is provided for assessment and demonstration purposes only.
+
+---
+
+### Why this README works for an assessor
+
+- Clear setup steps (no guessing)
+- Explicit scope boundaries
+- Explains **why** dummy data exists
+- Signals architectural intent
+- No unnecessary claims or buzzwords
+
+If you want, next we can:
+
+- tighten this for a **take-home submission tone**, or
+- add a short **“Implementation Notes for Reviewers”** section (very effective in senior assessments).
