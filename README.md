@@ -136,16 +136,3 @@ http://localhost:3000
 This project is provided for assessment and demonstration purposes only.
 
 ---
-
-### Why this README works for an assessor
-
-- Clear setup steps (no guessing)
-- Explicit scope boundaries
-- Explains **why** dummy data exists
-- Signals architectural intent
-- No unnecessary claims or buzzwords
-
-If you want, next we can:
-
-- tighten this for a **take-home submission tone**, or
-- add a short **“Implementation Notes for Reviewers”** section (very effective in senior assessments).
