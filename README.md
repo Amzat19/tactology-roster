@@ -78,25 +78,6 @@ index.ts
 
 ---
 
-## 📅 Dummy Data Strategy
-
-To make the planner **easy to test**, the app generates deterministic dummy events:
-
-- Events exist **every day**
-- Covers:
-  - last week
-  - current week
-  - next week
-- Each column has multiple events per day
-- Times are consistent and predictable
-
-This ensures:
-
-- Navigation always produces visible changes
-- Reviewers never encounter an empty grid unintentionally
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
