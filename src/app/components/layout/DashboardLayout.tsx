@@ -42,7 +42,7 @@ export default function DashboardLayout({
           </Box>
         )}
         {/* Page Content */}
-        <Box flex="1" overflow="auto">
+        <Box flex="1" overflow="auto" bg="white">
           {children}
         </Box>
       </Flex>
